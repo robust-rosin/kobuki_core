@@ -165,6 +165,7 @@ public:
   ** Debugging
   **********************/
   void printSigSlotConnections() const;
+  bool isNanHeading() const;
 
 private:
   /*********************
