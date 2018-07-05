@@ -273,7 +273,7 @@ void Kobuki::spin()
             if( !inertia.deserialise(data_buffer) ) { fixPayload(data_buffer); break; }
 
             // Issue #274: use first imu reading as zero heading; update when reseting odometry
-            if (isnan(heading_offset) == true)
+            if (isNanHeading())
               heading_offset = (static_cast<double>(inertia.data.angle) / 100.0) * ecl::pi / 180.0;
             break;
           case Header::Cliff:
@@ -374,6 +374,11 @@ void Kobuki::spin()
     }
   }
   sig_error.emit("Driver worker thread shutdown!");
+}
+
+bool Kobuki::isNanHeading() const
+{
+  return isnan(heading_offset) == true;
 }
 
 void Kobuki::fixPayload(ecl::PushAndPop<unsigned char> & byteStream)

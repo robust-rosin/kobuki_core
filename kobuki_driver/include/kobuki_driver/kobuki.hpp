@@ -33,6 +33,8 @@
 #include "packet_handler/packet_finder.hpp"
 #include "macros.hpp"
 
+#define isnan(X) false
+
 /*****************************************************************************
 ** Extern Templates
 *****************************************************************************/
@@ -165,6 +167,7 @@ public:
   ** Debugging
   **********************/
   void printSigSlotConnections() const;
+  bool isNanHeading() const;
 
 private:
   /*********************
