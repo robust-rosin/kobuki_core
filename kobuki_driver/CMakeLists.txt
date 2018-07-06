@@ -58,7 +58,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  find_package(roscpp REQUIRED)
   add_rostest_gtest(bug_witness test/bug_witness.test test/bug_witness.cpp)
-  target_link_libraries(bug_witness kobuki roscpp ${catkin_LIBRARIES})
+  target_link_libraries(bug_witness kobuki ${catkin_LIBRARIES})
 endif()
