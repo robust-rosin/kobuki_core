@@ -1,10 +1,11 @@
 #include "kobuki_driver/kobuki.hpp"
+#include <ros/ros.h>
 #include <gtest/gtest.h>
 
 // Declare a test
 TEST(TestSuite, testCase)
 {
-  Kobuki kobuki;
+  kobuki::Kobuki kobuki;
   EXPECT_TRUE(kobuki.isNanHeading());
 }
 
